@@ -1,0 +1,24 @@
+<ng-container *ngIf="!showUserInfoDetails">
+  <div class="nav-wrp">
+    <div class="button-row">
+      <button mat-button color="primary" (click)="addUser()">Add User</button>
+  </div>
+  <input matInput placeholder="Search" [(ngModel)]="searchText" (input)="search(searchText)" class="searchBox">
+  </div>
+<div *ngIf="userData" class="user-info-wrp">
+    <ng-container *ngFor="let user of userData">
+        <mat-card class="card">
+            <mat-card-header>
+              <mat-card-title>{{user?.user?.name?.title}} {{user?.user?.name?.first}} {{user?.user?.name?.last}}</mat-card-title>
+              <mat-card-subtitle>{{user?.user?.username}}</mat-card-subtitle>
+              <mat-card-subtitle>{{user?.user?.email}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image [src]="user?.user?.picture?.large" [alt]="user?.user?.username">
+            <mat-card-actions>
+              <button mat-button (click)="getUserDetails(user)">More Info</button>
+            </mat-card-actions>
+          </mat-card>
+    </ng-container>
+</div>
+</ng-container>
+<app-user *ngIf="showUserInfoDetails" [user]= "showUserInfoDetails" (back)= "goBack()"></app-user>

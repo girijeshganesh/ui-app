@@ -1,0 +1,10 @@
+.user-info-wrp {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .card {
+        width: 15%;
+        margin: 10px 0;
+        border: 1px solid #d7d7d7;
+    }
+}

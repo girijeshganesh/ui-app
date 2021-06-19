@@ -1,0 +1,17 @@
+.card {
+    width: 25%;
+    img {
+        width: calc(100% + 32px);
+        margin: 0 -16px 16px -16px;
+    }
+    .user-details {
+        .inner-det {
+            display: grid;
+            place-items: center;
+            color: #565656;
+            font-size: 14px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+    }
+}

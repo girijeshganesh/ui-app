@@ -1,0 +1,53 @@
+<h1 mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+    <form class="user-form" [formGroup]="userForm">
+        <mat-form-field class="full-width">
+          <mat-label>Gender</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{gender.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Title</mat-label>
+            <mat-select formControlName="title">
+                <mat-option *ngFor="let title of titles" [value]="title.value">
+                  {{title.viewValue}}
+                </mat-option>
+              </mat-select>
+          </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>First</mat-label>
+            <input matInput placeholder="First" formControlName="first">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Last</mat-label>
+            <input matInput placeholder="Last" formControlName="last">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" formControlName="username">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>DOB</mat-label>
+            <input matInput placeholder="DOB" formControlName="dob" type="date">
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Phone" formControlName="phone" type="number">
+          </mat-form-field>
+      </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="addUser()" cdkFocusInitial>Ok</button>
+</div>

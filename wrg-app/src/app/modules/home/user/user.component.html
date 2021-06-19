@@ -1,0 +1,23 @@
+<div class="nav-wrp">
+    <div (click)="goBack()" class="back-btn">Back to Home</div>
+</div>
+<mat-card class="card">
+    <div class="user-details">
+        <div><img [src]="user.picture.large" alt="user img" /></div>
+        <div class="inner-det">
+            <div>{{user.name.title}} {{user.name.first}} {{user.name.last}}</div>
+            <div>{{user.email}}</div>
+            <div>{{user.username}}</div>
+            <div>{{user.gender}}</div>
+            <div>{{user.location.street}}</div>
+            <div>{{user.location.city}}</div>
+            <div>{{user.location.state}}</div>
+            <div>{{user.location.zip}}</div>
+            <div>{{user.salt}}</div>
+            <div>{{user.phone}}</div>
+            <div>{{user.cell}}</div>
+            <div>{{user.HETU}}</div>
+        </div>
+    
+    </div>
+  </mat-card>
