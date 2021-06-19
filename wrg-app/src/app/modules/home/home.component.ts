@@ -12,8 +12,8 @@ import { ModalComponent } from 'src/app/shared/components/modal/modal.component'
 export class HomeComponent implements OnInit {
   userData: any;
   searchText: any;
-  allUsers:any;
-  showUserInfoDetails:any;
+  allUsers: any;
+  showUserInfoDetails: any;
   constructor(private userService: UserService, private fb: FormBuilder, public dialog: MatDialog, private router: Router) {
   }
   ngOnInit(): void {
@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result: any) => {
-      if(result) {
-        const user = { user: result};
+      if (result) {
+        const user = { user: result };
         this.userData = [user, ...this.userData];
         this.allUsers = this.userData;
         localStorage.setItem('userData', JSON.stringify(this.userData));
@@ -39,15 +39,15 @@ export class HomeComponent implements OnInit {
     });
   }
   search(value: any) {
-    if(value) {
-      this.userData = this.allUsers.filter((user:any)=>user?.user?.name?.first.includes(value)|| user?.user?.name?.last.includes(value))
+    if (value) {
+      this.userData = this.allUsers.filter((user: any) => user?.user?.name?.first.toLowerCase().includes(value.toLowerCase()) || user?.user?.name?.last.toLowerCase().includes(value.toLowerCase()))
     }
     else {
       this.userData = this.allUsers;
     }
   }
-  getUserDetails(user:any) {
-  this.showUserInfoDetails = user?.user;
+  getUserDetails(user: any) {
+    this.showUserInfoDetails = user?.user;
   }
   goBack() {
     this.showUserInfoDetails = null;
